@@ -20,7 +20,6 @@ post_header:
   img: https://moumao.moumaobuchiyu.com/images/coverpic.jpg
   about:
     - "你好啊 你可以叫我某猫"
-
   url: "http://moumaobuchiyu.com"
   visitor_front: "您是第"
   visitor_back: "位访客"
@@ -59,7 +58,7 @@ sidebar:
 
 # Reading experience
 reading:
-    entry_excerpt: 100
+    entry_excerpt: 80
 
 #photo page
 photo:
