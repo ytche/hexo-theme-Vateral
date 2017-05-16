@@ -2,12 +2,17 @@
 # html lang
 language: en
 
+# seo优化
+seo:
+ keywords: "某猫のblog"
+ description: "欢迎来到我的blog 你可以叫我某猫 希望你喜欢这里"
+
 # Miscelaneous
 favicon: https://moumao.moumaobuchiyu.com/source/favicon.ico
 
-# head-bg 头像背景图 
+# head-bg 头像背景图
 headbg: https://moumao.moumaobuchiyu.com/images/head-bg.jpg
-# header 头像图 
+# header 头像图
 header: https://moumao.moumaobuchiyu.com/images/header.jpg
 
 # post-header 标语部分
@@ -15,6 +20,7 @@ post_header:
   img: https://moumao.moumaobuchiyu.com/images/coverpic.jpg
   about:
     - "你好啊 你可以叫我某猫"
+
   url: "http://moumaobuchiyu.com"
   visitor_front: "您是第"
   visitor_back: "位访客"
@@ -24,15 +30,14 @@ visitor: false
 
 #链接
 sns:
-    github: "https://github.com/moumao"
-    weibo: "http://weibo.com/u/3168872804"
-    zhihu: "https://www.zhihu.com/people/mou-mao-75/activities"
-    twitter: "https://twitter.com/vaterial_moumao"
-    email: "1195358569@qq.com"
+   github: "https://github.com/moumao"
+   weibo: "http://weibo.com/u/3168872804"
+   zhihu: "https://www.zhihu.com/people/mou-mao-75/activities"
+   twitter: "https://twitter.com/vaterial_moumao"
+   email: "1195358569@qq.com"
 
 #默认thumbnail图片的数目
 thumbnail: 19
-
 
 
 #nav
@@ -73,5 +78,4 @@ scripts:
   - https://moumao.moumaobuchiyu.com/js/lazyload.min.js
   - https://moumao.moumaobuchiyu.com/js/jquery.rotate.min.js
   - https://moumao.moumaobuchiyu.com/js/Vateral.min.js
-
 
