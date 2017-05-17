@@ -10,18 +10,31 @@ seo:
 # Miscelaneous
 favicon: https://moumao.moumaobuchiyu.com/source/favicon.ico
 
+<<<<<<< HEAD
 # head-bg 头像背景图
 headbg: https://moumao.moumaobuchiyu.com/images/head-bg.jpg
 # header 头像图
 header: https://moumao.moumaobuchiyu.com/images/header.jpg
+=======
+# head-bg 头像背景图 
+headbg: /images/header-bg.png
+# header 头像图 
+header: /images/header.jpg
+>>>>>>> master
 
 # post-header 标语部分
 post_header:
   img: https://moumao.moumaobuchiyu.com/images/coverpic.jpg
   about:
+<<<<<<< HEAD
     - "你好啊 你可以叫我某猫"
   url: "http://moumaobuchiyu.com"
   visitor_front: "您是第"
+=======
+    - "你好 欢迎来到本站"
+  url: "http://example.com"
+  visitor_front: "你是第"
+>>>>>>> master
   visitor_back: "位访客"
 
 #访客
@@ -50,11 +63,11 @@ sidebar:
     tags:
         use: true
     about:
-        use: true
+        use: false
     friends:
-        use: true
+        use: false
     photo:
-        use: true
+        use: false
 
 # Reading experience
 reading:
