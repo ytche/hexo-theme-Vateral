@@ -1,3 +1,6 @@
+NProgress.start();
+NProgress.done();
+
 (function () {
 
     window.onload=function () {
@@ -21,7 +24,34 @@
             })
     },1000)
 })();
+$(function(){
+    $(".lazy").lazyload({
+        effect : "fadeIn"
+    });
+});
 
+function dowmdiv() {
+    var contentHeight = document.body.scrollHeight,//网页正文全文高度
+        winHeight = window.innerHeight;//可视窗口高度，不包括浏览器顶部工具栏
+    if(!(contentHeight > winHeight)){
+        $(".up").css({
+            "display":"none"
+        });
+        //当网页正文高度小于可视窗口高度时，为footer添加类fixed-bottom
+        $("#bottom-outer").css({
+            "position":"absolute",
+            "bottom":0,
+            "left":0
+        });
+    } else {
+        $("#bottom-outer").css({
+            "position":"relative"
+        });
+        $("#top-button").css({
+            "display":"block"
+        });
+    }
+}
 
 
 (function () {
@@ -45,6 +75,9 @@
 
                 });
             }
+            $(document).on('pjax:end', function() {
+                friendsload();
+            })
             window.onload=friendsload();
         });
     }else {
@@ -64,6 +97,9 @@
 
                 });
             }
+            $(document).on('pjax:end', function() {
+                friendsload();
+            })
             window.onload=friendsload();
            /* $(".post-header").animate({
                 "margin-top":"100px"
@@ -77,12 +113,11 @@
             menuWidth: 250, // Default is 240
             edge: 'left', // Choose the horizontal origin
             closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-            draggable: false // Choose whether you can drag to open on touch screens
+            draggable: true // Choose whether you can drag to open on touch screens
         }
     );
-    $(".nav-btn").click(function () {
-        $('.button-collapse').sideNav("show");
-
+    $(document).on('pjax:end', function() {
+        $('.button-collapse').sideNav('hide');
     })
 })();
 
@@ -257,11 +292,6 @@ $("#local-search-result").bind("DOMNodeRemoved DOMNodeInserted", function(e) {
     })
 })();
 
-(function () {
-    $(".post-back").click(function () {
-        window.history.back();
-    })
-})();
 
 (function () {
     var $root = $('html, body');
@@ -297,8 +327,48 @@ $("#local-search-result").bind("DOMNodeRemoved DOMNodeInserted", function(e) {
        }
    })
 })();
-$(function(){
-    $(".lazy").lazyload({
-        effect : "fadeIn"
-    });
-});
+
+//节流函数
+var throttle = function (fn, delay, atleast) {
+    var timer = null;
+    var previous = null;
+
+    return function () {
+        var now = +new Date();
+
+        if ( !previous ) previous = now;
+        if ( atleast && now - previous > atleast ) {
+            fn();
+            // 重置上一次开始时间为本次结束时间
+            previous = now;
+            clearTimeout(timer);
+        } else {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                fn();
+                previous = null;
+            }, delay);
+        }
+    }
+};
+
+(function () {
+    var up=$(".up");
+    window.onscroll = function () {
+        var top=$(window).scrollTop(),
+            height=$(window).height(),
+            botton =$(document).height() - top-height;
+        if (top>=height-80){
+            if (botton<=90){
+                up.removeClass("upinbody");
+                up.addClass("upinfoot");
+            }else {
+                up.removeClass("upinfoot");
+                up.addClass("upinbody");
+            }
+            up.fadeIn(500);
+        }else if (top<=height-80){
+            up.fadeOut(500);
+        }
+    }
+})();

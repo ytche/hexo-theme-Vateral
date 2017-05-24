@@ -2,7 +2,8 @@
 
 ![](https://www.moumaobuchiyu.com/images/welcomePage.png)
 
-![](https://www.moumaobuchiyu.com/images/jietu.png)
+从PC端到移动端，均提供支持
+![](https://www.moumaobuchiyu.com/images/all.jpg)
 
 ## Vateral
 
@@ -155,22 +156,23 @@ search:
 在主题配置文件中visitor属性设置为true即可开启全站的计数统计
 在post_header属性中，设置visitor_front的值为访客数目的前缀，设置visitor_back的值为访客数目的后缀
 
-### 文章配置
+### 博客运行时间统计
 
-使用hexo命令生成一片新文章后，需要在md文件中进行如下配置
+在_config.yml文件中的time属性设置为ture，并且设置begin_time属性为开始计时的时间
+
+### 评论系统
+*注：本主题暂时仅支持disqus，所以需要评论功能的话快翻墙注册一个账号吧~
+
+在_config.yml文件中的comment属性，use设置为true，然后将shortname属性设置为你的disqus域名
+格式如下：
 ```
----
-title: //文章标题
-date: 2017-04-21 10:41:30
-categories:
-- //文章分类
-tags: 
-- //文章标签
-- //文章标签
-up: true //文章是否需要置顶，如果不需要此属性可以不写
-thumbnail: //文章的图片url，如果不填则为默认图片
----
+comment:
+    use: true
+    shortname: yourname.disqus.com
 ```
+
+如果不想使用则把use值设置为false即可
+
 ### 代码高亮
 首先安装插件Hexo-Prism-Plugin
 ```npm i -S hexo-prism-plugin ```
@@ -192,6 +194,24 @@ prism_plugin:
 重新生成静态文件这样就有代码高亮了~
 
 ps：欢迎反馈高亮代码样式问题
+
+
+### 文章配置
+
+使用hexo命令生成一片新文章后，需要在md文件中进行如下配置
+```
+---
+title: //文章标题
+date: 2017-04-21 10:41:30
+categories:
+- //文章分类
+tags: 
+- //文章标签
+- //文章标签
+up: true //文章是否需要置顶，如果不需要此属性可以不写
+thumbnail: //文章的图片url，如果不填则为默认图片
+---
+```
 
 至此配置基本结束
 
